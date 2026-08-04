@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Gallery - BloodConnect</title>
+<link rel="stylesheet" href="">
+<style>
+    body {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background: #fff;
+  color: #333;
+}
+
+/* Header */
+header {
+ height: 10vh;
+    display:flex;
+    align-items:center;
+     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: rgb(244, 240, 240,0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  
+}
+
+header b{
+  color: red;
+}
+
+nav{
+    padding-left: 14%;
+}
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+nav a:hover {
+  color: red;
+}
+
+.nav-btn{
+    padding-left: 1% ;
+    margin-left: 10px;
+}
+
+button{
+    width:80px;
+    height:35px;
+    border:2px solid red;
+    border-radius:10px;
+    cursor:pointer;
+    
+}
+button:hover{
+    background:red;
+    color:white;
+}
+
+
+/* Banner */
+.banner {
+   width: 100vw;
+  height: 20vh;
+  margin-top: 10vh;
+  background: red;
+  color: white;
+ display: flex;
+align-items: center;
+justify-content: center;
+font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.donor-info h3 {
+  margin: 0 0 5px 0;
+}
+
+.donor-info p {
+  margin: 2px 0;
+  color: #555;
+  font-size: 14px;
+}
+/* Gallery */
+.gallery-section {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.gallery-item {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-item p {
+  text-align: center;
+  padding: 10px;
+  margin: 0;
+  font-weight: bold;
+  background: #fff;
+}
+.btn button{
+    width: 150px;
+}
+
+nav a{
+
+    margin:0 10px;
+    text-decoration:none;
+    color:#333;
+    transition:0.3s;
+}
+
+nav a:hover{
+
+    color:red;
+    transform:translateY(-3px);
+
+}
+
+@keyframes fadeDown{
+
+    from{
+        opacity:0;
+        transform:translateY(-40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+header{
+    animation:slideDown 0.8s ease;
+}
+
+@keyframes slideDown{
+    from{
+        transform:translateY(-100%);
+        opacity:0;
+    }
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+
+.banner h1{
+    animation:zoomIn 1s ease;
+}
+
+@keyframes zoomIn{
+    from{
+        transform:scale(0.5);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+
+.banner{
+    animation:fadeDown 1s ease;
+}
+
+nav a{
+
+    margin:0 10px;
+    text-decoration:none;
+    color:#333;
+    transition:0.3s;
+}
+
+nav a:hover{
+
+    color:red;
+    transform:translateY(-3px);
+
+}
+
+
+/* ========== Tablet (768px - 1024px) ========== */
+
+@media screen and (max-width:1024px){
+
+header{
+    padding:10px;
+}
+
+header img{
+    width:80px;
+}
+
+header h1{
+    font-size:28px;
+}
+
+nav{
+    padding-left:5%;
+}
+
+nav a{
+    margin:0 6px;
+    font-size:15px;
+}
+
+.gallery-section{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.gallery-item img{
+    height:180px;
+}
+
+}
+
+
+/* ========== Mobile (767px and below) ========== */
+
+@media screen and (max-width:767px){
+
+header{
+    flex-direction:column;
+    height:auto;
+    padding:15px;
+}
+
+header img{
+    width:70px;
+}
+
+header h1{
+    font-size:24px;
+    margin:10px 0;
+}
+
+nav{
+    padding-left:0;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+nav a{
+    margin:8px;
+    font-size:14px;
+}
+
+.banner{
+    height:25vh;
+    text-align:center;
+}
+
+.banner h1{
+    font-size:30px;
+}
+
+.gallery-section{
+    grid-template-columns:1fr;
+    width:90%;
+}
+
+.gallery-item img{
+    height:220px;
+}
+
+.btn button{
+    width:100%;
+}
+
+footer{
+    font-size:14px;
+}
+
+}
+
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: red;
+  color: white;
+  margin-top: 30px;
+}
+</style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+     <img src="images/blood.png" alt="logo" width="100px">
+    <h1> Blood<b>Bridge</b></h1>
+    <nav>
+  <a href="Home1.html">Home</a>
+  <a href="About1.html">About</a>
+  <a href="Donar.html">Donate</a>
+  <a href="FindDonar1.html">Find Donor</a>
+  <a href="Emergency1.html">Emergency</a>
+  <a href="Gallery1.html">Gallery</a>
+  <a href="blog1.html">Blog</a>
+  <a href="contact1.html">Contact</a>
+    </nav>
+   <!-- <div class="nav-btn">
+      <button>Login</button>
+      <button>Register</button>
+    </div> -->
+  </header>
+
+  <!-- Page Title -->
+  <div class="banner">
+    <h1>Gallery</h1>
+   
+  </div>
+
+  <!-- Gallery Section -->
+  <div class="gallery-section">
+
+    <div class="gallery-item">
+      <img src="images/donation.png" alt="Blood Donation Camp">
+      <p>Blood Donation Camp</p>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/certificates.png" alt="Donors with Certificates">
+      <p>Donors with Certificates</p>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/team.png" alt="Medical Team">
+      <p>Medical Team</p>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/happydonor.png" alt="Happy Donors">
+      <p>Happy Donors</p>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/volunteer.png" alt="Volunteers">
+      <p>Volunteers</p>
+    </div>
+
+    <div class="gallery-item">
+      <img src="images/event.png" alt="Blood Donation Event">
+      <p>Blood Donation Event</p>
+    </div>
+
+  </div>
+
+  <div class="btn" style="text-align:center; margin-bottom:40px;">
+    <button >View More Photos</button>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 BloodConnect. All rights reserved.</p>
+  </footer>
+
+</body>
+<script src="script.js"></script>
+</html>
