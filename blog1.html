@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Blog - BloodConnect</title>
+<link rel="stylesheet" href="">
+<style>
+body {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background: #fff;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* Header */
+header {
+    height: 10vh;
+    display:flex;
+    align-items:center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: rgb(244, 240, 240,0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  
+}
+
+header b{
+  color: red;
+}
+
+nav{
+    padding-left: 14%;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+nav a:hover {
+ color: red;
+}
+
+
+
+button{
+    width:80px;
+    height:35px;
+    border:2px solid red;
+    border-radius:10px;
+    cursor:pointer;
+    
+}
+button:hover{
+    background:red;
+    color:white;
+}
+
+
+
+.btn-outline {
+  background: white;
+  color: #d21f3c;
+  border: 1px solid #d21f3c;
+  padding: 10px 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+/* Banner */
+.banner {
+ width: 100vw;
+  height: 20vh;
+  margin-top: 10vh;
+  background: red;
+  color: white;
+ display: flex;
+align-items: center;
+justify-content: center;
+font-family: Georgia, 'Times New Roman', Times, serif;
+ 
+}
+/* Blog */
+.blog-section {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.blog-card {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.blog-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.blog-card:hover img {
+  transform: scale(1.08);
+}
+
+.blog-content {
+  padding: 15px;
+}
+
+.blog-tag {
+  font-size: 12px;
+  color: #999;
+}
+
+.blog-card h3 {
+  margin: 8px 0;
+  font-size: 18px;
+}
+
+.blog-card p {
+  font-size: 14px;
+  color: #555;
+  margin: 0 0 10px 0;
+}
+
+.read-more {
+  color: red;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.read-more:hover {
+  color: #b3122a;
+  padding-left: 5px;
+}
+
+
+
+.btn button{
+    width: 150px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: red;
+  color: white;
+  margin-top: 30px;
+}
+
+@keyframes fadeDown{
+
+    from{
+        opacity:0;
+        transform:translateY(-40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+header{
+    animation:slideDown 0.8s ease;
+}
+
+@keyframes slideDown{
+    from{
+        transform:translateY(-100%);
+        opacity:0;
+    }
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+
+.banner h1{
+    animation:zoomIn 1s ease;
+}
+
+@keyframes zoomIn{
+    from{
+        transform:scale(0.5);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+
+.banner{
+    animation:fadeDown 1s ease;
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.blog-card{
+    animation:fadeUp 1s ease;
+}
+
+nav a{
+
+    transition:0.3s;
+
+}
+
+nav a:hover{
+
+    color:red;
+    transform:translateY(-3px);
+
+}
+
+/* ========== Tablet (768px - 1024px) ========== */
+
+@media screen and (max-width:1024px){
+
+header{
+    padding:10px;
+}
+
+header img{
+    width:80px;
+}
+
+header h1{
+    font-size:28px;
+}
+
+nav{
+    padding-left:5%;
+}
+
+nav a{
+    margin:0 6px;
+    font-size:15px;
+}
+
+.blog-section{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.blog-card img{
+    height:170px;
+}
+
+}
+
+
+/* ========== Mobile (767px and below) ========== */
+
+@media screen and (max-width:767px){
+
+header{
+    flex-direction:column;
+    height:auto;
+    padding:15px;
+}
+
+header img{
+    width:70px;
+}
+
+header h1{
+    font-size:24px;
+    margin:10px 0;
+}
+
+nav{
+    padding-left:0;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+nav a{
+    margin:8px;
+    font-size:14px;
+}
+
+.banner{
+    height:25vh;
+    text-align:center;
+}
+
+.banner h1{
+    font-size:30px;
+}
+
+.blog-section{
+    grid-template-columns:1fr;
+    width:90%;
+}
+
+.blog-card img{
+    height:220px;
+}
+
+.blog-content h3{
+    font-size:18px;
+}
+
+.blog-content p{
+    font-size:14px;
+}
+
+.btn button{
+    width:100%;
+}
+
+footer{
+    font-size:14px;
+}
+
+}
+</style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+     <img src="images/blood.png" alt="logo" width="100px">
+    <h1> Blood<b>Bridge</b></h1>
+    <nav>
+  <a href="Home1.html">Home</a>
+  <a href="About1.html">About</a>
+  <a href="Donar.html">Donate</a>
+  <a href="FindDonar1.html">Find Donor</a>
+  <a href="Emergency1.html">Emergency</a>
+  <a href="Gallery1.html">Gallery</a>
+  <a href="blog1.html">Blog</a>
+  <a href="contact1.html">Contact</a>
+    </nav>
+    <!-- <div class="nav-btn">
+      <button>Login</button>
+      <button>Register</button>
+    </div> -->
+  </header>
+
+  <!-- Page Title -->
+  <div class="banner">
+    <h1>Blog</h1>
+    
+  </div>
+
+  <!-- Blog Section -->
+  <div class="blog-section">
+
+    <div class="blog-card">
+      <img src="images/groups.png" alt="Importance of Blood Donation">
+      <div class="blog-content">
+        <span class="blog-tag">Health · 5 min read</span>
+        <h3>Importance of Blood Donation</h3>
+        <p>Blood donation is crucial in saving lives and supporting medical treatments.</p>
+        
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <img src="images/bloodcell.png" alt="Tips Before Donating Blood">
+      <div class="blog-content">
+        <span class="blog-tag">Guide · 4 min read</span>
+        <h3>Tips Before Donating Blood</h3>
+        <p>Follow these simple tips to ensure a smooth and safe donation experience.</p>
+      
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <img src="images/mythblood.png" alt="Myths About Blood Donation">
+      <div class="blog-content">
+        <span class="blog-tag">Awareness · 6 min read</span>
+        <h3>Myths About Blood Donation</h3>
+        <p>Let's bust some myths and understand the truth about blood donation.</p>
+       
+      </div>
+    </div>
+
+  </div>
+
+  <!-- <div class="btn" style="text-align:center; margin-bottom:40px;">
+    <button>View All Blogs</button>
+  </div> -->
+
+  <br><br>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 BloodConnect. All rights reserved.</p>
+  </footer>
+
+</body>
+<script src="script.js"></script>
+</html>
