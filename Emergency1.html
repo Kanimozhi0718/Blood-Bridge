@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Emergency Request - BloodConnect</title>
+
+<style>
+    body {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background: #fff;
+  color: #333;
+}
+
+/* Header */
+header {
+  height: 10vh;
+  display:flex;
+  align-items:center;
+     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: rgb(244, 240, 240,0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  
+}
+
+header b{
+  color: red;
+}
+
+nav{
+    padding-left: 14%;
+}
+
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+nav a:hover {
+ color: red;
+}
+
+/* Buttons */
+ button{
+    width:80px;
+    height:35px;
+    border:2px solid red;
+    border-radius:10px;
+    cursor:pointer;
+    
+}
+
+.nav-btn{
+    padding-left: 1% ;
+    margin-left: 10px;
+}
+
+button:hover{
+    background:red;
+    color:white;
+}
+
+/* Banner */
+.banner {
+  width: 100vw;
+  height: 20vh;
+  margin-top: 10vh;
+  background: red;
+  color: white;
+ display: flex;
+align-items: center;
+justify-content: center;
+font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Form (donate / emergency page) */
+.form-box {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 25px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.form-box:hover {
+  box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+}
+
+.form-box label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-box input,
+.form-box select,
+.form-box textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-box textarea {
+  resize: vertical;
+}
+
+.form-box input:focus,
+.form-box select:focus,
+.form-box textarea:focus {
+  border-color: #d21f3c;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(210, 31, 60, 0.15);
+}
+
+
+.form-box button {
+  margin-top: 15px;
+  margin-right: 10px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: red;
+  color: white;
+  margin-top: 30px;
+}
+
+@keyframes fadeDown{
+
+    from{
+        opacity:0;
+        transform:translateY(-40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+header{
+    animation:slideDown 0.8s ease;
+}
+
+@keyframes slideDown{
+    from{
+        transform:translateY(-100%);
+        opacity:0;
+    }
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+
+.banner h1{
+    animation:zoomIn 1s ease;
+}
+
+@keyframes zoomIn{
+    from{
+        transform:scale(0.5);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+.form-box{
+    animation:fadeUp 1s ease;
+}
+
+@media screen and (min-width:768px) and (max-width:1024px){
+
+header{
+    padding:10px;
+}
+
+header img{
+    width:80px;
+}
+
+header h1{
+    font-size:28px;
+}
+
+nav{
+    padding-left:5%;
+}
+
+nav a{
+    margin:0 8px;
+    font-size:16px;
+}
+
+.banner{
+    height:22vh;
+}
+
+.banner h1{
+    font-size:36px;
+}
+
+.form-box{
+    width:80%;
+}
+
+button{
+    width:100px;
+}
+
+}
+
+@media screen and (max-width:767px){
+
+header{
+    flex-direction:column;
+    height:auto;
+    padding:10px;
+}
+
+header img{
+    width:70px;
+}
+
+header h1{
+    font-size:24px;
+    margin:10px 0;
+}
+
+nav{
+    padding-left:0;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+nav a{
+    margin:8px;
+    font-size:14px;
+}
+
+.banner{
+    height:25vh;
+    text-align:center;
+}
+
+.banner h1{
+    font-size:28px;
+}
+
+.form-box{
+    width:90%;
+    padding:20px;
+}
+
+.form-box input,
+.form-box select,
+.form-box textarea{
+    font-size:14px;
+}
+
+button{
+    width:100%;
+    margin-top:15px;
+}
+
+footer{
+    font-size:14px;
+}
+
+}
+</style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+   <img src="images/blood.png" alt="logo" width="100px">
+    <h1> Blood <b>Bridge</b></h1>
+    <nav>
+  <a href="Home1.html">Home</a>
+  <a href="About1.html">About</a>
+  <a href="Donar.html">Donate</a>
+  <a href="FindDonar1.html">Find Donor</a>
+  <a href="Emergency1.html">Emergency</a>
+  <a href="Gallery1.html">Gallery</a>
+  <a href="blog1.html">Blog</a>
+  <a href="contact1.html">Contact</a>
+    </nav>
+    <!-- <div class="nav-btn">
+      <button>Login</button>
+      <button>Register</button>
+    </div> -->
+
+  </header>
+
+  <!-- Page Title -->
+  <div class="banner">
+    <h1>Emergency Request</h1>
+  
+  </div>
+
+  <!-- Emergency Form -->
+  <div class="form-box">
+    <h2>Emergency Request</h2>
+  <form id="emergencyForm">
+
+  <label>Patient Name</label>
+  <input type="text" id="patientName" placeholder="Enter patient name">
+
+  <label>Hospital Name</label>
+  <input type="text" id="hospitalName" placeholder="Enter hospital name">
+
+  <label>Blood Group</label>
+  <select id="bloodGroup">
+    <option value="">Select Blood Group</option>
+    <option>A+</option>
+    <option>A-</option>
+    <option>B+</option>
+    <option>B-</option>
+    <option>AB+</option>
+    <option>AB-</option>
+    <option>O+</option>
+    <option>O-</option>
+  </select>
+
+  <label>Units Needed</label>
+  <input type="number" id="units" placeholder="Enter units">
+
+  <label>Contact Number</label>
+  <input type="text" id="contact" placeholder="Enter contact number">
+
+  <label>City</label>
+  <select id="city">
+    <option value="">Select City</option>
+    <option>Chennai</option>
+    <option>Madurai</option>
+    <option>Trichy</option>
+  </select>
+
+  <label>Additional Message</label>
+  <textarea id="message" rows="4" placeholder="Enter message"></textarea>
+
+  <button type="submit">Submit</button>
+
+</form>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 BloodConnect. All rights reserved.</p>
+  </footer>
+
+</body>
+<script src="script1.js"></script>
+</html>
