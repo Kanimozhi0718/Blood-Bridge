@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard - BloodBridge</title>
+<link rel="stylesheet" href="Admin.css">
+<link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<!-- ===================== LOGIN SECTION ===================== -->
+<section class="admin-login-wrap" id="adminLoginSection">
+
+    <div class="admin-login-box">
+
+        <div class="admin-login-logo">
+            <img src="images/blood.png" alt="BloodBridge Logo" width="60">
+            <h1>Blood<span>Bridge</span></h1>
+        </div>
+
+        <p class="admin-login-subtitle">Admin Panel Login</p>
+
+        <form id="adminLoginForm" novalidate>
+
+            <div class="input-group">
+                <label for="adminUser">Username</label>
+                <input type="text" id="adminUser" placeholder="Enter admin username" autocomplete="off" required>
+            </div>
+
+            <div class="input-group">
+                <label for="adminPass">Password</label>
+                <input type="password" id="adminPass" placeholder="Enter admin password" required>
+            </div>
+
+            <div class="show-password-row">
+               <input type="checkbox" id="adminShowPassword">
+               <label for="adminShowPassword">Show Password</label>
+            </div>
+
+            <small class="admin-login-error" id="adminLoginError"></small>
+
+            <button type="submit" class="admin-submit-btn">Login to Dashboard</button>
+
+        </form>
+
+       
+
+    </div>
+
+    <!-- Decorative wave at the bottom of the login page -->
+    <svg class="login-wave" viewBox="0 0 1440 220" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path class="login-wave-back"
+              d="M0,120 C240,200 480,40 720,90 C960,140 1200,220 1440,140 L1440,220 L0,220 Z"></path>
+        <path class="login-wave-front"
+              d="M0,160 C240,90 480,200 720,150 C960,100 1200,60 1440,120 L1440,220 L0,220 Z"></path>
+    </svg>
+
+</section>
+
+<!-- ===================== DASHBOARD SECTION ===================== -->
+<div class="admin-dashboard" id="adminDashboardSection">
+
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+
+        <div class="admin-brand">
+            <img src="images/blood.png" alt="Logo" width="42">
+            <h2>Blood<span>Bridge</span></h2>
+        </div>
+
+        <nav class="admin-nav">
+            <button class="admin-nav-btn active" data-tab="overview">
+                <i class="bi bi-grid-fill"></i> Overview
+            </button>
+            <button class="admin-nav-btn" data-tab="donors">
+                <i class="bi bi-people-fill"></i> Donors
+            </button>
+            <button class="admin-nav-btn" data-tab="emergency">
+                <i class="bi bi-heart-pulse-fill"></i> Emergency Requests
+            </button>
+            <button class="admin-nav-btn" data-tab="messages">
+                <i class="bi bi-envelope-fill"></i> Contact Messages
+            </button>
+        </nav>
+
+        <button class="admin-logout-btn" id="adminLogoutBtn">
+            <i class="bi bi-box-arrow-right"></i> Sign Out
+        </button>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+
+        <header class="admin-topbar">
+            <button class="admin-menu-toggle" id="adminMenuToggle" aria-label="Toggle menu">
+                <i class="bi bi-list"></i>
+            </button>
+            <h1 id="adminPageTitle">Overview</h1>
+        </header>
+
+        <!-- Decorative wave divider under the dashboard header -->
+        <svg class="dashboard-wave" viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path class="dashboard-wave-back"
+                  d="M0,50 C240,90 480,10 720,40 C960,70 1200,100 1440,60 L1440,100 L0,100 Z"></path>
+            <path class="dashboard-wave-front"
+                  d="M0,70 C240,30 480,90 720,60 C960,40 1200,20 1440,50 L1440,100 L0,100 Z"></path>
+        </svg>
+
+        <!-- ---------- OVERVIEW TAB ---------- -->
+        <section class="admin-tab-content active" id="tab-overview">
+
+            <div class="stat-cards">
+
+                <div class="stat-card">
+                    <i class="bi bi-people-fill"></i>
+                    <div>
+                        <h3 id="statDonors">0</h3>
+                        <p>Registered Donors</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <i class="bi bi-heart-pulse-fill"></i>
+                    <div>
+                        <h3 id="statEmergency">0</h3>
+                        <p>Emergency Requests</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <i class="bi bi-envelope-fill"></i>
+                    <div>
+                        <h3 id="statMessages">0</h3>
+                        <p>Contact Messages</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <i class="bi bi-droplet-fill"></i>
+                    <div>
+                        <h3 id="statBloodGroups">0</h3>
+                        <p>Blood Groups Covered</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="chart-cards">
+
+                <div class="chart-card">
+                    <h2>Blood Group Distribution</h2>
+                    <div class="chart-wrap">
+                        <canvas id="bloodGroupChart"></canvas>
+                    </div>
+                    <p class="empty-state" id="bloodGroupChartEmpty">No donors registered yet.</p>
+                </div>
+
+                <div class="chart-card">
+                    <h2>Donor Availability</h2>
+                    <div class="chart-wrap">
+                        <canvas id="availabilityChart"></canvas>
+                    </div>
+                    <p class="empty-state" id="availabilityChartEmpty">No donors registered yet.</p>
+                </div>
+
+            </div>
+
+            <div class="overview-panel">
+                <h2>Recent Donor Registrations</h2>
+                <div class="table-wrap">
+                    <table class="admin-table" id="recentDonorsTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Blood Group</th>
+                                <th>City</th>
+                                <th>Mobile</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <p class="empty-state" id="recentDonorsEmpty">No donors registered yet.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ---------- DONORS TAB ---------- -->
+        <section class="admin-tab-content" id="tab-donors">
+
+            <div class="tab-toolbar">
+                <div class="search-box">
+                    <i class="bi bi-search"></i>
+                    <input type="text" id="donorSearch" placeholder="Search by name, city or mobile...">
+                </div>
+
+                <select id="donorFilterBlood">
+                    <option value="">All Blood Groups</option>
+                    <option>A+</option>
+                    <option>A-</option>
+                    <option>B+</option>
+                    <option>B-</option>
+                    <option>AB+</option>
+                    <option>AB-</option>
+                    <option>O+</option>
+                    <option>O-</option>
+                </select>
+
+                <select id="donorFilterStatus">
+                    <option value="">All Status</option>
+                    <option value="available">Available</option>
+                    <option value="unavailable">Not Available</option>
+                </select>
+            </div>
+
+            <div class="table-wrap">
+                <table class="admin-table" id="donorsTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Gender</th>
+                            <th>Blood Group</th>
+                            <th>Mobile</th>
+                            <th>Email</th>
+                            <th>City</th>
+                            <th>Weight</th>
+                            <th>Last Donation</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <p class="empty-state" id="donorsEmpty">No donors registered yet.</p>
+            </div>
+
+        </section>
+
+        <!-- ---------- EMERGENCY TAB ---------- -->
+        <section class="admin-tab-content" id="tab-emergency">
+
+            <div class="tab-toolbar">
+                <div class="search-box">
+                    <i class="bi bi-search"></i>
+                    <input type="text" id="emergencySearch" placeholder="Search by patient, hospital or city...">
+                </div>
+            </div>
+
+            <div class="table-wrap">
+                <table class="admin-table" id="emergencyTable">
+                    <thead>
+                        <tr>
+                            <th>Patient</th>
+                            <th>Hospital</th>
+                            <th>Blood Group</th>
+                            <th>Units</th>
+                            <th>Contact</th>
+                            <th>City</th>
+                            <th>Message</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <p class="empty-state" id="emergencyEmpty">No emergency requests yet.</p>
+            </div>
+
+        </section>
+
+        <!-- ---------- MESSAGES TAB ---------- -->
+        <section class="admin-tab-content" id="tab-messages">
+
+            <div class="tab-toolbar">
+                <div class="search-box">
+                    <i class="bi bi-search"></i>
+                    <input type="text" id="messageSearch" placeholder="Search by name, email or subject...">
+                </div>
+            </div>
+
+            <div class="table-wrap">
+                <table class="admin-table" id="messagesTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Subject</th>
+                            <th>Message</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <p class="empty-state" id="messagesEmpty">No contact messages yet.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- Toast Notification (no js alert used) -->
+<div class="admin-toast" id="adminToast"></div>
+
+<!-- Delete Confirm Popup (no js confirm used) -->
+<div class="admin-confirm-overlay" id="adminConfirmOverlay">
+    <div class="admin-confirm-box">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+        <p id="adminConfirmText">Delete this entry?</p>
+        <div class="admin-confirm-actions">
+            <button id="adminConfirmCancel">Cancel</button>
+            <button id="adminConfirmOk">Delete</button>
+        </div>
+    </div>
+</div>
+
+<script src="Admin.js"></script>
+</body>
+</html>
