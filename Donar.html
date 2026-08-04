@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+  body {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background: #fff;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* Header */
+header {
+ height: 10vh;
+    display:flex;
+    align-items:center;
+     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: rgb(244, 240, 240,0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  
+}
+header b{
+  color: red;
+}
+
+nav{
+    padding-left: 14%;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+nav a:hover {
+  color: red;
+}
+
+/* Buttons */
+ button{
+    width:80px;
+    height:35px;
+    border:2px solid red;
+    border-radius:10px;
+    cursor:pointer;
+    
+}
+
+.nav-btn{
+    padding-left: 1% ;
+    margin-left: 10px;
+}
+
+button:hover{
+    background:red;
+    color:white;
+}
+
+
+/* Banner */
+.banner {
+  width: 100vw;
+  height: 20vh;
+  margin-top: 10vh;
+  background: red;
+  color: white;
+ display: flex;
+align-items: center;
+justify-content: center;
+font-family: Georgia, 'Times New Roman', Times, serif;
+ 
+}
+
+/* Form */
+.form-box {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 25px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.form-box:hover {
+  box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+}
+
+.form-box label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-box input,
+.form-box select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: 0.3s
+}
+
+.form-box input:focus,
+.form-box select:focus {
+  border-color: red;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(210, 31, 60, 0.15);
+}
+
+.note {
+  font-size: 13px;
+  color: gray;
+  margin: 15px 0;
+}
+
+.form-box button {
+   width:100px;
+    height:35px;
+    margin: 5px;
+    border:2px solid red;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+/* Password show/hide row */
+.password-wrap{
+    position:relative;
+}
+
+.show-hide-row{
+    display:flex;
+    align-items:center;
+    margin-top:6px;
+    font-weight:normal;
+}
+
+.show-hide-row input[type="checkbox"]{
+    width:auto;
+    margin-right:6px;
+}
+
+.show-hide-row label{
+    display:inline;
+    margin:0;
+    font-weight:normal;
+    font-size:13px;
+    color:#555;
+}
+
+.error-msg{
+    color:red;
+    font-size:13px;
+    margin-top:5px;
+    display:none;
+}
+
+.form-box input.input-error{
+    border-color:red;
+}
+
+.show-password-check {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 10px 0;
+  cursor: pointer;
+  accent-color: #d32f2f;
+}
+
+.show-password-check input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+}
+
+.show-password-check label {
+  margin: 0;
+  cursor: pointer;
+}
+
+.error-msg {
+  display: none;
+  color: red;
+  font-size: 13px;
+}
+
+
+
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background:red;
+  color: white;
+  margin-top: 30px;
+}
+
+body{
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+
+header{
+    animation: slideDown 0.8s ease;
+}
+
+@keyframes slideDown{
+    from{
+        transform:translateY(-100%);
+    }
+    to{
+        transform:translateY(0);
+    }
+}
+
+.form-box{
+    animation: formUp 1s ease;
+    transition:0.4s;
+}
+
+@keyframes formUp{
+    from{
+        opacity:0;
+        transform:translateY(60px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.form-box:hover{
+    transform:translateY(-8px);
+}
+
+.banner h1{
+    animation:zoomIn 1s ease;
+}
+
+@keyframes zoomIn{
+    from{
+        transform:scale(0.5);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+
+@media(max-width:768px){
+
+    header{
+        flex-direction:column;
+        height:auto;
+        padding:15px;
+    }
+
+    nav{
+        padding-left:0;
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        margin-top:10px;
+    }
+
+    nav a{
+        margin:8px;
+    }
+
+    .banner{
+        height:15vh;
+        margin-top:22vh;
+    }
+
+    .banner h1{
+        font-size:28px;
+    }
+
+    .form-box{
+        width:90%;
+        margin:20px auto;
+        padding:20px;
+    }
+
+    .form-box button{
+        width:100%;
+        margin-top:10px;
+    }
+}
+</style>
+</head>
+<body>
+    
+
+  <!-- Header -->
+  <header id="header">
+
+    <img src="images/blood.png" alt="logo" width="100px" id="logo">
+
+    <h1 id="websiteTitle">Blood <b>Bridge</b></h1>
+
+    <nav id="navbar">
+      <a href="Home1.html" id="homeLink">Home</a>
+      <a href="About1.html" id="aboutLink">About</a>
+      <a href="Donar.html" id="donorLink">Donate</a>
+      <a href="FindDonar1.html" id="findDonorLink">Find Donor</a>
+      <a href="Emergency1.html" id="emergencyLink">Emergency</a>
+      <a href="Gallery1.html" id="galleryLink">Gallery</a>
+      <a href="blog1.html" id="blogLink">Blog</a>
+      <a href="contact1.html" id="contactLink">Contact</a>
+    </nav>
+
+  </header>
+
+  <!-- Banner -->
+  <div class="banner" id="banner">
+    <h1 id="bannerTitle">Become a Donor</h1>
+  </div>
+
+  <!-- Form -->
+  <div class="form-box" id="formContainer">
+
+    <h2 id="formHeading">Donor Registration Form</h2>
+
+    <form id="donorForm" novalidate>
+
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" placeholder="Enter full name" required>
+
+      <label for="age">Age</label>
+      <input type="number" id="age" placeholder="Enter age" required>
+
+      <label for="gender">Gender</label>
+      <select id="gender" required>
+        <option value="">Select Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+      </select>
+
+      <label for="bloodGroup">Blood Group</label>
+      <select id="bloodGroup" required>
+        <option value="">Select Blood Group</option>
+        <option>A+</option>
+        <option>A-</option>
+        <option>B+</option>
+        <option>B-</option>
+        <option>O+</option>
+        <option>O-</option>
+      </select>
+
+      <label for="mobile">Mobile Number</label>
+      <input type="text" id="mobile" placeholder="Enter mobile number" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="Enter email" required>
+
+      <label for="city">City</label>
+      <input type="text" id="city" placeholder="Enter your City" required>
+
+      <label for="address">Address</label>
+      <input type="text" id="address" placeholder="Enter address" required>
+
+      <label for="weight">Weight (kg)</label>
+      <input type="number" id="weight" placeholder="Enter weight" required>
+
+      <label for="donationDate">Last Donation Date</label>
+      <input type="date" id="donationDate">
+
+      
+     <!-- Password fields -->
+     <label for="password">Password</label>
+      <div class="password-wrap">
+        <input type="password" id="password" placeholder="Enter password" required>
+      </div>
+
+      <label for="confirmPassword">Confirm Password</label>
+      <div class="password-wrap">
+        <input type="password" id="confirmPassword" placeholder="Confirm password" required>
+      </div>
+
+      <div class="show-password-check">
+        <input type="checkbox" id="showPassword">
+        <label for="showPassword">Show Password</label>
+      </div>
+
+      <span class="error-msg" id="passwordError">Password and Confirm Password do not match!</span>
+
+     <br><br>
+      <p class="note" id="note">
+        Note: Your information is safe with us and will not be shared.
+      </p>
+
+      <button type="submit" id="registerBtn">Register Now</button>
+
+      <button type="reset" id="resetBtn">Reset</button>
+
+    </form>
+
+  </div>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <p id="footerText">© 2026 BloodConnect. All rights reserved.</p>
+  </footer>
+
+
+</body>
+<script src="script1.js"></script>
+</html>
