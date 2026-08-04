@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact</title>
+<link rel="stylesheet" href="">
+<style>
+body {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background: #fff;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* Header */
+header {
+ height: 10vh;
+    display:flex;
+    align-items:center;
+     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: rgb(244, 240, 240,0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  
+}
+
+header b{
+  color: red;
+}
+nav{
+    padding-left: 14%;
+}
+
+nav a {
+   margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+nav a:hover {
+   color: red;
+}
+
+button{
+    width:80px;
+    height:35px;
+    border:2px solid red;
+    border-radius:10px;
+    cursor:pointer;
+    
+}
+
+button:hover{
+    background:red;
+    color:white;
+}
+
+/* Banner */
+.banner {
+  width: 100vw;
+  height: 20vh;
+  margin-top: 10vh;
+  background: red;
+  color: white;
+ display: flex;
+align-items: center;
+justify-content: center;
+font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Contact page */
+.contact-section {
+  max-width: 1000px;
+  margin: 30px auto 40px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 25px;
+}
+
+.contact-form-box {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.contact-form-box:hover {
+  box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+}
+
+.contact-form-box label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.contact-form-box input,
+.contact-form-box textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form-box textarea {
+  resize: vertical;
+}
+
+.contact-form-box input:focus,
+.contact-form-box textarea:focus {
+  border-color: #d21f3c;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(210, 31, 60, 0.15);
+}
+
+.contact-info-box {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.map-box {
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.contact-info-box h3 {
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.contact-info-box p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fde8ea;
+  color: #d21f3c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+
+.social-icons a:hover {
+  background: #d21f3c;
+  color: white;
+  transform: translateY(-3px);
+}
+
+
+
+.btn button{
+    width: 130px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background:red;
+  color: white;
+  margin-top: 30px;
+}
+
+@keyframes fadeDown{
+    from{
+        opacity:0;
+        transform:translateY(-40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+header{
+    animation:slideDown 0.8s ease;
+}
+
+@keyframes slideDown{
+    from{
+        transform:translateY(-100%);
+        opacity:0;
+    }
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+
+.banner{
+    animation:fadeDown 1s ease;
+}
+
+@keyframes fadeLeft{
+    from{
+        opacity:0;
+        transform:translateX(-40px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+.banner h1{
+    animation:zoomIn 1s ease;
+}
+
+@keyframes zoomIn{
+    from{
+        transform:scale(0.5);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+.contact-form-box{
+    animation:fadeLeft 1s ease;
+}
+
+nav a{
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:red;
+    transform:translateY(-3px);
+}
+
+
+@media (max-width:768px){
+
+header{
+    flex-wrap:wrap;
+    height:auto;
+    justify-content:center;
+    padding:15px;
+}
+
+header h1{
+    font-size:24px;
+}
+
+nav{
+    padding-left:0;
+    margin-top:10px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+}
+
+.banner{
+    margin-top:160px;
+}
+
+.contact-section{
+    grid-template-columns:1fr;
+}
+
+.contact-form-box,
+.contact-info-box{
+    width:100%;
+}
+
+iframe{
+    height:250px;
+}
+
+}
+
+@media (max-width:480px){
+
+header img{
+    width:70px;
+}
+
+header h1{
+    font-size:20px;
+}
+
+nav{
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+}
+
+nav a{
+    display:block;
+}
+
+.banner{
+    height:120px;
+    margin-top:260px;
+}
+
+.banner h1{
+    font-size:28px;
+}
+
+.contact-section{
+    padding:15px;
+}
+
+.contact-form-box,
+.contact-info-box{
+    padding:15px;
+}
+
+.contact-form-box input,
+.contact-form-box textarea{
+    font-size:14px;
+}
+
+button{
+    width:100%;
+}
+
+.social-icons{
+    justify-content:center;
+}
+
+iframe{
+    height:200px;
+}
+
+footer{
+    font-size:14px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <img src="images/blood.png" alt="logo" width="100px">
+    <h1> Blood<b>Bridge</b></h1>
+    <nav>
+  <a href="Home1.html">Home</a>
+  <a href="About1.html">About</a>
+  <a href="Donar.html">Donate</a>
+  <a href="FindDonar1.html">Find Donor</a>
+  <a href="Emergency1.html">Emergency</a>
+  <a href="Gallery1.html">Gallery</a>
+  <a href="blog1.html">Blog</a>
+  <a href="contact1.html">Contact</a>
+    </nav>
+    <!-- <div class="nav-btn">
+      <button>Login</button>
+      <button>Register</button>
+    </div> -->
+  </header>
+
+  <!-- Page Title -->
+  <div class="banner">
+    <h1>Contact Us</h1>
+    
+  </div>
+
+  <!-- Contact Section -->
+  <div class="contact-section">
+
+    <!-- Left: Contact Form -->
+    <div class="contact-form-box">
+      <h2>Send us a message</h2>
+     <form id="contactForm">
+
+  <label>Your Name</label>
+  <input type="text" id="name" placeholder="Enter your name">
+
+  <label>Email Address</label>
+  <input type="email" id="email" placeholder="Enter your email">
+
+  <label>Subject</label>
+  <input type="text" id="subject" placeholder="Enter subject">
+
+  <label>Message</label>
+  <textarea id="message" rows="5" placeholder="Enter message"></textarea>
+
+  <div class="btn" style="margin-top:20px;">
+    <button type="submit">Send Message</button>
+  </div>
+
+</form>
+    </div>
+
+    <!-- Right: Map + Info -->
+    <div class="contact-info-box">
+      <div class="map-box">
+        <iframe src="https://maps.google.com/maps?q=Anna%20Nagar%2C%20Chennai&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          width="100%" height="220" style="border:0;" loading="lazy">
+        </iframe>
+      </div>
+
+      <h3>Reach Us</h3>
+      <p>📞 +91 98765 43210</p>
+      <p>✉️ info@bloodbridge.com</p>
+      <p>📍 123, Anna Nagar, Chennai - 600040</p>
+
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="#">fb</a>
+        <a href="#">ig</a>
+        <a href="#">tw</a>
+        <a href="#">yt</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 BloodConnect. All rights reserved.</p>
+  </footer>
+
+</body>
+<script src="script1.js"></script>
+</html>
